@@ -26,7 +26,7 @@ class Quizzes(models.Model):
         return self.title
 
 
-class Updated(models.Model):
+class UpdatedQuestion(models.Model):
 
     date_updated = models.DateTimeField(
         verbose_name=_("Last Updated"), auto_now=True)
@@ -35,7 +35,7 @@ class Updated(models.Model):
         abstract = True
 
 
-class Question(Updated):
+class Question(UpdatedQuestion):
 
     class Meta:
         verbose_name = _("Question")
@@ -70,7 +70,7 @@ class Question(Updated):
         return self.title
 
 
-class Answer(Updated):
+class Answer(UpdatedQuestion):
 
     class Meta:
         verbose_name = _("Answer")

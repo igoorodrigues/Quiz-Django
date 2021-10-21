@@ -3,10 +3,11 @@ from . import models
 
 @admin.register(models.Category)
 
-class CatAdmin(admin.ModelAdmin):
+class QuizAdmin(admin.ModelAdmin):
 	list_display = [
         'name',
         ]
+
 
 @admin.register(models.Quizzes)
 
@@ -16,12 +17,14 @@ class QuizAdmin(admin.ModelAdmin):
         'title',
         ]
 
+
 class AnswerInlineModel(admin.TabularInline):
     model = models.Answer
     fields = [
         'answer_text', 
         'is_right'
         ]
+
 
 @admin.register(models.Question)
 
@@ -38,6 +41,7 @@ class QuestionAdmin(admin.ModelAdmin):
     inlines = [
         AnswerInlineModel, 
         ] 
+
 
 @admin.register(models.Answer)
 

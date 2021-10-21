@@ -1,7 +1,10 @@
 from rest_framework import serializers
 from .models import Quizzes, Question, Answer
 
+# List Quizzes
 class QuizSerializer(serializers.ModelSerializer):
+
+    #question = serializers.StringRelatedField(many=True)
 
     class Meta:
 
@@ -25,6 +28,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 class RandomQuestionSerializer(serializers.ModelSerializer):
 
+    # answer = serializers.StringRelatedField(many=True)
     answer = AnswerSerializer(many=True, read_only=True)
     
     class Meta:
@@ -33,3 +37,5 @@ class RandomQuestionSerializer(serializers.ModelSerializer):
         fields = [
             'title','answer',
         ]
+
+
